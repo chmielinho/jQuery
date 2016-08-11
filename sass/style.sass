@@ -1,0 +1,33 @@
+body
+	display: flex
+	min-height: 100vh
+	flex-direction: column
+	margin: 0
+	padding: 0
+	header,
+	footer
+		flex: none
+		padding: 1.5em
+		background-color: rgba(255, 176, 93, 0.7)
+		text-align: center;
+	main
+		flex: 1 0 auto
+		padding: var(--space) var(--space) 0
+		width: 100%
+		.wrapper
+			max-width: 1200px
+			margin: 0 auto
+			padding: 20px
+			overflow: hidden
+			text-align: justify
+			#menu
+				margin: 40px 0
+			.buttons
+				margin: 20px 0
+				p
+					width: 150px
+					text-align: right
+					span
+						display: inline-block
+					button
+						margin: 0 10px

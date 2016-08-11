@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  padding: 0; }
+  body header,
+  body footer {
+    flex: none;
+    padding: 1.5em;
+    background-color: rgba(255, 176, 93, 0.7);
+    text-align: center; }
+  body main {
+    flex: 1 0 auto;
+    padding: var(--space) var(--space) 0;
+    width: 100%; }
+    body main .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow: hidden;
+      text-align: justify; }
+      body main .wrapper #menu {
+        margin: 40px 0; }
+      body main .wrapper .buttons {
+        margin: 20px 0; }
+        body main .wrapper .buttons p {
+          width: 150px;
+          text-align: right; }
+          body main .wrapper .buttons p span {
+            display: inline-block; }
+          body main .wrapper .buttons p button {
+            margin: 0 10px; }
+
+/*# sourceMappingURL=style.css.map */

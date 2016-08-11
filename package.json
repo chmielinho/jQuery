@@ -1,0 +1,27 @@
+{
+  "name": "jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chmielinho/jQuery.git"
+  },
+  "author": "Mateusz Chmielarz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chmielinho/jQuery/issues"
+  },
+  "homepage": "https://github.com/chmielinho/jQuery#readme"
+}
