@@ -13,6 +13,7 @@ function menu() {
 		}
 	}
 };
+//change $.click(); to $.on();
 $('.button').click(menu);
 
 $('span').each(function (index, element) {
