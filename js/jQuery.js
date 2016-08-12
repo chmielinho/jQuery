@@ -14,7 +14,7 @@ function menu() {
 	}
 };
 //change $.click(); to $.on();
-$('.button').click(menu);
+$('.button').on('click', menu);
 
 $('span').each(function (index, element) {
 	if (index % 2 === 0) {
@@ -26,6 +26,6 @@ paragraphs.each(function (index, element) {
 	var button = '<button class="btn" data-tmp="' + index + '">Click me</button>';
 	$(element).append(button);
 });
-$('.btn').click(function () {
+$('.btn').on('click', function () {
 	alert($(this).attr('data-tmp'));
 });
