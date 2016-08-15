@@ -38,13 +38,25 @@ module.exports = function(grunt) {
 				server: './'
 			}
 		}
-	}
+	},
+	imagemin: {
+  		dynamic: {
+  			files: [{
+  				expand: true,
+  				cwd: 'img/',
+  				src: ['**/*.{png,jpg,gif}'],
+  				dest: 'img-opt/'
+  			}]
+  		}
+  	}
   });
+
   // Load the plugins tasks 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 	
   // Default task(s).
-  grunt.registerTask('default', [ 'sass', 'browserSync', 'watch' ]);
+  grunt.registerTask('default', [ 'imagemin', 'sass', 'browserSync', 'watch' ]);
 };

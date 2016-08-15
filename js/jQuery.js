@@ -13,7 +13,6 @@ function menu() {
 		}
 	}
 };
-//change $.click(); to $.on();
 $('.button').on('click', menu);
 
 $('span').each(function (index, element) {
@@ -28,4 +27,18 @@ paragraphs.each(function (index, element) {
 });
 $('.btn').on('click', function () {
 	alert($(this).attr('data-tmp'));
+});
+
+$(function(){
+	var carouselList = $("#carousel ul");
+	setInterval(changeSlide, 3000);
+	function changeSlide () {
+		carouselList.animate({'marginLeft':-600}, 500, moveFirstSlide);
+	}
+	function moveFirstSlide () {
+		var firstItem = carouselList.find("li:first");
+		var lastItem = carouselList.find("li:last");
+		lastItem.after(firstItem);
+		carouselList.css({marginLeft:0});
+	}
 });
