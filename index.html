@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
 	<meta charset="UTF-8">
 	<title>First jQuery elements</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css"> </head>
-
 <body>
-	<header>Header</header>
+	<header>
+		<h1>First site using jQuery</h1>
+	</header>
 	<main>
 		<div class="wrapper">
-			<h1>First site using jQuery</h1>
 			<div id="carousel">
-				<ul>
-					<li><img src="/img-opt/photo1.jpg" alt=""></li>
-					<li><img src="/img-opt/photo2.jpg" alt=""></li>
-					<li><img src="/img-opt/photo3.jpg" alt=""></li>
-					<li><img src="/img-opt/photo4.jpg" alt=""></li>
-					<li><img src="/img-opt/photo5.jpg" alt=""></li>
+				<ul class="photos">
+					<li data-no="0"><img src="/img-opt/photo1.jpg" alt=""></li>
+					<li data-no="1"><img src="/img-opt/photo2.jpg" alt=""></li>
+					<li data-no="2"><img src="/img-opt/photo3.jpg" alt=""></li>
+					<li data-no="3"><img src="/img-opt/photo4.jpg" alt=""></li>
+					<li data-no="4"><img src="/img-opt/photo5.jpg" alt=""></li>
 				</ul>
+				<ul class="bullets">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<button class="next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</button>
+				<button class="back">
+					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+				</button>
 			</div>
 			<div id="menu">
 				<p>Tak z ciekawości powstała dynamiczna lista</p>
@@ -59,8 +73,9 @@
 			</div>
 		</div>
 	</main>
-	<footer>Footer</footer>
+	<footer>
+		<p>Copyrights&copy 2016 by Mateusz Chmielarz</p>
+	</footer>
 	<script type="text/javascript" src="js/jQuery.js"></script>
 </body>
-
 </html>

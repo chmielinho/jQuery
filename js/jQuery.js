@@ -1,6 +1,6 @@
-var text;
-function menu() {
-	$('ul').remove();
+$('.button').on('click', function () {
+	var text;
+	$('#menu ul').remove();
 	var count = prompt('Ile pozycji listy stworzyć ?');
 	if (count > 0) {
 		$('#menu').append('<ul></ul>');
@@ -9,11 +9,10 @@ function menu() {
 			if (text === null || text === '') {
 				text = 'Nowa pozycja listy';
 			}
-			$('ul').append('<li>' + text + ' </li>');
+			$('#menu ul').append('<li>' + text + ' </li>');
 		}
 	}
-};
-$('.button').on('click', menu);
+});
 
 $('span').each(function (index, element) {
 	if (index % 2 === 0) {
@@ -29,16 +28,56 @@ $('.btn').on('click', function () {
 	alert($(this).attr('data-tmp'));
 });
 
-$(function(){
-	var carouselList = $("#carousel ul");
-	setInterval(changeSlide, 3000);
-	function changeSlide () {
-		carouselList.animate({'marginLeft':-600}, 500, moveFirstSlide);
+$(function () {
+	var carouselList = $('#carousel .photos');
+	$('#carousel .next').on('click', changeSlideNext);
+	$('#carousel .back').on('click', changeSlideBack);
+	$('#carousel .bullets li').on('click', bulletsOnClick);
+	setInterval(changeSlideNext, 10000);
+	bullets();
+	function changeSlideNext() {
+		carouselList.animate({'marginLeft': -600}, 500, moveFirstSlide);
 	}
-	function moveFirstSlide () {
-		var firstItem = carouselList.find("li:first");
-		var lastItem = carouselList.find("li:last");
+	function changeSlideBack() {
+		carouselList.animate({'marginLeft': 0}, 500, moveLastSlide());
+	}
+	function moveFirstSlide() {
+		var firstItem = carouselList.find('li:first'),
+			lastItem = carouselList.find('li:last');
 		lastItem.after(firstItem);
-		carouselList.css({marginLeft:0});
+		carouselList.css({marginLeft: 0});
+		bullets();
+	}
+	function moveLastSlide() {
+		var firstItem = carouselList.find('li:first'),
+			lastItem = carouselList.find('li:last');
+		firstItem.before(lastItem);
+		carouselList.css({marginLeft: -600});
+		bullets();
+	}
+	function bullets() {
+		var carouselList = $('#carousel .photos');
+		var carouselList2 = $('#carousel .bullets');
+		var count = carouselList.find('li').length;
+		for (var i = 0; i < count; i++) {
+			var photoLi = carouselList.find('li').eq(0).data('no'),
+				bulletsLi = carouselList2.find('li').eq(i).index();
+			if (photoLi == bulletsLi) {
+				carouselList2.find('li').eq(i).html('<i class="fa fa-circle" aria-hidden="true"></i>');
+			} else {
+				carouselList2.find('li').eq(i).html('<i class="fa fa-circle-o" aria-hidden="true"></i>');
+			}
+		}
+	}
+	function bulletsOnClick() {
+		var clicked = $(this).index();
+		var carouselList = $('#carousel .photos');
+		var i = carouselList.find('li').eq(0).data('no');
+		for (i; i >= clicked; i--){
+				moveLastSlide();
+		};
+		for (i; i < clicked; i++){
+				moveFirstSlide();
+		};
 	}
 });
