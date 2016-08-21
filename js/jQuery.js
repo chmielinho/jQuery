@@ -1,6 +1,6 @@
 $('.button').on('click', function () {
 	var text;
-	$('#menu ul').remove();
+	$('ul', '#menu').remove();
 	var count = prompt('Ile pozycji listy stworzyć ?');
 	if (count > 0) {
 		$('#menu').append('<ul></ul>');
@@ -9,7 +9,7 @@ $('.button').on('click', function () {
 			if (text === null || text === '') {
 				text = 'Nowa pozycja listy';
 			}
-			$('#menu ul').append('<li>' + text + ' </li>');
+			$('ul', '#menu').append('<li>' + text + ' </li>');
 		}
 	}
 });
@@ -29,10 +29,10 @@ $('.btn').on('click', function () {
 });
 
 $(function () {
-	var carouselList = $('#carousel .photos');
-	$('#carousel .next').on('click', changeSlideNext);
-	$('#carousel .back').on('click', changeSlideBack);
-	$('#carousel .bullets li').on('click', bulletsOnClick);
+	var carouselList = $('.photos', '#carousel');
+	$('.next', '#carousel').on('click', changeSlideNext);
+	$('.back', '#carousel').on('click', changeSlideBack);
+	$('.bullets', '#carousel').find('li').on('click', bulletsOnClick);
 	setInterval(changeSlideNext, 10000);
 	bullets();
 	function changeSlideNext() {
@@ -56,8 +56,8 @@ $(function () {
 		bullets();
 	}
 	function bullets() {
-		var carouselList = $('#carousel .photos');
-		var carouselList2 = $('#carousel .bullets');
+		var carouselList = $('.photos', '#carousel');
+		var carouselList2 = $('.bullets', '#carousel');
 		var count = carouselList.find('li').length;
 		for (var i = 0; i < count; i++) {
 			var photoLi = carouselList.find('li').eq(0).data('no'),
@@ -71,7 +71,7 @@ $(function () {
 	}
 	function bulletsOnClick() {
 		var clicked = $(this).index();
-		var carouselList = $('#carousel .photos');
+		var carouselList = $('.photos', '#carousel');
 		var i = carouselList.find('li').eq(0).data('no');
 		for (i; i >= clicked; i--){
 				moveLastSlide();
